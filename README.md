@@ -1,38 +1,43 @@
-# WhatsApp-UI-clone
 # WhatsApp UI Clone (Kotlin · Android · MVVM · Clean Architecture)
+
+A sleek WhatsApp UI clone for Android built in Kotlin, focused on clean code, modern design patterns, and robust architecture.
 
 ## Overview
 
-A WhatsApp UI clone built for Android using Kotlin. The project follows MVVM (Model-View-ViewModel) and Clean Architecture principles, featuring domain, data, and presentation layers for scalable, testable, and maintainable code.  
-It replicates WhatsApp’s classic interface with chats, status, and user profile screens, and includes Google Sign-In authentication using JWT ID Tokens.
+This project replicates the look & feel of WhatsApp, including chats, status updates, and user profiles. Built with MVVM and Clean Architecture, it features clear separation between domain, data, and presentation layers. Authentication is handled with Google Sign-In (JWT ID Token), and the app is designed for easy extension and testing.
+
+---
 
 ## Features
 
-- Modern WhatsApp-inspired user interface
-- Chat list and individual chat screens (send, receive, display messages)
-- Status posting and viewing
-- User profile view and info editing
+- Modern WhatsApp-inspired UI
+- View chat list, open/switch chats, send & receive messages
+- Post/view statuses
+- Edit/view user profile info
 - Google Sign-In authentication (JWT ID Token)
-- Light and dark theme support
-- Architectural separation (domain, data, presentation)
-- Written entirely in Kotlin
+- Light/Dark theme toggle
+- Modular, maintainable codebase (MVVM/Clean Architecture)
+- 100% Kotlin, using Jetpack Compose for UI
+
+---
 
 ## Architecture
 
-### Layers:
-- **Domain:** Business logic, entities, repository interfaces, use cases  
-- **Data:** Implementation of repositories, remote/local data sources, network models (DTOs), mappers  
-- **Presentation:** UI screens, viewmodels, adapters, UI utilities
+**Layers:**
+- **Domain:** Business logic, models, repo interfaces, use cases  
+- **Data:** Repo implementations, remote/local data sources, DTOs, mappers  
+- **Presentation:** UI screens, components, viewmodels
 
-### Authentication:
-- Google Sign-In using JWT ID Token
-- Auth-related code structured for separation of concerns:
-  - `data/source/remote/GoogleAuthService.kt` – handles Google authentication flow
-  - `domain/usecase/SignInWithGoogleUseCase.kt` – business logic for sign-in
-  - `presentation/auth/AuthScreen.kt` & `presentation/auth/AuthViewModel.kt` – UI and state management
+**Authentication Flow:**
+- **GoogleAuthService.kt:** Handles auth with Google and JWT acquisition
+- **SignInWithGoogleUseCase.kt:** Encapsulates business logic for sign-in
+- **AuthScreen.kt & AuthViewModel.kt:** UI and state management for authentication
+
+---
 
 ## Folder Structure
 
+```
 WhatsApp-UI-clone/
 ├── app/
 │   ├── src/
@@ -41,54 +46,80 @@ WhatsApp-UI-clone/
 │   │   │   │   └── com/
 │   │   │   │       └── mitchelkenn00/
 │   │   │   │           └── whatsappuiclone/
-│   │   │   │               ├── authdata/
-│   │   │   │               │   ├── AuthRepository.kt
-│   │   │   │               │   └── AuthRemoteDataSource.kt
+│   │   │   │               ├── data/
+│   │   │   │               │   ├── repository/
+│   │   │   │               │   │   └── AuthRepositoryImpl.kt
+│   │   │   │               │   └── source/
+│   │   │   │               │       ├── remote/
+│   │   │   │               │       │   ├── GoogleAuthService.kt
+│   │   │   │               │       │   └── ChatRemoteDataSource.kt
+│   │   │   │               │       └── local/
+│   │   │   │               │           ├── ChatLocalDataSource.kt
 │   │   │   │               ├── domain/
 │   │   │   │               │   ├── model/
 │   │   │   │               │   │   ├── User.kt
-│   │   │   │               │   │   └── Message.kt
+│   │   │   │               │   │   ├── Message.kt
+│   │   │   │               │   │   └── Status.kt
+│   │   │   │               │   ├── repository/
+│   │   │   │               │   │   └── AuthRepository.kt
 │   │   │   │               │   └── usecase/
-│   │   │   │               │       ├── LoginUseCase.kt
-│   │   │   │               │       └── SendMessageUseCase.kt
-│   │   │   │               ├── presentation/
-│   │   │   │               │   ├── ui/
-│   │   │   │               │   │   ├── screens/
-│   │   │   │               │   │   │   ├── ChatScreen.kt
-│   │   │   │               │   │   │   ├── HomeScreen.kt
-│   │   │   │               │   │   └── components/
-│   │   │   │               │   │       ├── ChatBubble.kt
-│   │   │   │               │   │       ├── TopBar.kt
-│   │   │   │               │   ├── viewmodel/
-│   │   │   │               │   │   ├── AuthViewModel.kt
-│   │   │   │               │   │   └── ChatViewModel.kt
-│   │   │   │               ├── MainActivity.kt
+│   │   │   │               │       ├── SignInWithGoogleUseCase.kt
+│   │   │   │               │       ├── SendMessageUseCase.kt
+│   │   │   │               │       └── PostStatusUseCase.kt
+│   │   │   │               └── presentation/
+│   │   │   │                   ├── ui/
+│   │   │   │                   │   ├── screens/
+│   │   │   │                   │   │   ├── AuthScreen.kt
+│   │   │   │                   │   │   ├── ChatScreen.kt
+│   │   │   │                   │   │   ├── HomeScreen.kt
+│   │   │   │                   │   │   ├── StatusScreen.kt
+│   │   │   │                   │   │   └── ProfileScreen.kt
+│   │   │   │                   │   ├── components/
+│   │   │   │                   │   │   ├── ChatBubble.kt
+│   │   │   │                   │   │   ├── TopBar.kt
+│   │   │   │                   │   │   └── StatusTile.kt
+│   │   │   │                   ├── viewmodel/
+│   │   │   │                   │   ├── AuthViewModel.kt
+│   │   │   │                   │   ├── ChatViewModel.kt
+│   │   │   │                   │   ├── StatusViewModel.kt
+│   │   │   │                   │   └── ProfileViewModel.kt
+│   │   │   │                   └── MainActivity.kt
 │   │   │   ├── res/
 │   │   │   │   ├── drawable/
 │   │   │   │   ├── values/
 │   │   │   │   └── mipmap/
 │   │   │   └── AndroidManifest.xml
 │   └── build.gradle
+├── google-services.json         # Google Auth config -- add your own
 ├── README.md
+├── LICENSE
 └── ...
+```
+
+---
 
 ## Getting Started
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/whatsapp-ui-clone.git
+   git clone https://github.com/mitchelkenn00/WhatsApp-UI-clone.git
    ```
 
-2. **Open in [Android Studio](https://developer.android.com/studio).**
+2. **Open in [Android Studio](https://developer.android.com/studio)**
 
-3. **Configure your Google Client ID for Google Sign-In in your `google-services.json`.**
+3. **Add your Google Client ID/credentials to `google-services.json` (for Sign-In)**  
+   - [How to generate google-services.json?](https://developers.google.com/identity/sign-in/android/start)
 
-4. **Build and launch on emulator or device.**
+4. **Build and run on emulator/device (Android 5.0+)**
+
+---
 
 ## Contributing
 
-Contributions, feature requests, and bug reports are welcome!  
-Please open an issue or submit a pull request.
+- Ideas, bug reports, and pull requests are welcome!
+- Please open an [issue](https://github.com/mitchelkenn00/WhatsApp-UI-clone/issues) or draft a PR
+
+---
 
 ## License
 
@@ -96,4 +127,4 @@ Please open an issue or submit a pull request.
 
 ---
 
-**Made with ❤️ in Kotlin**
+**Made with ❤️ in Kotlin & Jetpack Compose**
