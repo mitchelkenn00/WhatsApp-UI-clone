@@ -33,71 +33,44 @@ It replicates WhatsApp’s classic interface with chats, status, and user profil
 
 ## Folder Structure
 
-```
-├── data/
-│   ├── repository/
-│   │   ├── AuthRepositoryImpl.kt
-│   │   ├── ChatRepositoryImpl.kt
-│   │   └── UserRepositoryImpl.kt
-│   ├── model/
-│   │   ├── ChatDto.kt
-│   │   ├── MessageDto.kt
-│   │   ├── UserDto.kt
-│   │   └── StatusDto.kt
-│   ├── source/
-│   │   ├── remote/
-│   │   │   └── GoogleAuthService.kt
-│   │   ├── local/
-│   │   │   └── LocalDatabase.kt
-│   └── mapper/
-│       └── ModelsMapper.kt
-├── domain/
-│   ├── model/
-│   │   ├── Chat.kt
-│   │   ├── Message.kt
-│   │   ├── User.kt
-│   │   └── Status.kt
-│   ├── repository/
-│   │   ├── AuthRepository.kt
-│   │   ├── ChatRepository.kt
-│   │   └── UserRepository.kt
-│   └── usecase/
-│       ├── SignInWithGoogleUseCase.kt
-│       ├── GetChatsUseCase.kt
-│       └── SendMessageUseCase.kt
-├── presentation/
-│   ├── auth/
-│   │   ├── AuthScreen.kt
-│   │   └── AuthViewModel.kt
-│   ├── chat/
-│   │   ├── ChatListScreen.kt
-│   │   ├── ChatScreen.kt
-│   │   ├── ChatListViewModel.kt
-│   │   └── ChatViewModel.kt
-│   ├── status/
-│   │   ├── StatusScreen.kt
-│   │   └── StatusViewModel.kt
-│   ├── profile/
-│   │   ├── ProfileScreen.kt
-│   │   └── ProfileViewModel.kt
-│   ├── adapter/
-│   │   ├── ChatListAdapter.kt
-│   │   ├── MessageAdapter.kt
-│   │   └── StatusAdapter.kt
-│   └── util/
-│       └── Extensions.kt
-├── res/
-│   ├── layout/
-│   │   ├── screen_auth.xml
-│   │   ├── screen_chat_list.xml
-│   │   ├── screen_chat.xml
-│   │   ├── screen_status.xml
-│   │   └── screen_profile.xml
-│   ├── values/
-│   ├── drawable/
-│   └── mipmap/
-└── AndroidManifest.xml
-```
+WhatsApp-UI-clone/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/
+│   │   │   │       └── mitchelkenn00/
+│   │   │   │           └── whatsappuiclone/
+│   │   │   │               ├── authdata/
+│   │   │   │               │   ├── AuthRepository.kt
+│   │   │   │               │   └── AuthRemoteDataSource.kt
+│   │   │   │               ├── domain/
+│   │   │   │               │   ├── model/
+│   │   │   │               │   │   ├── User.kt
+│   │   │   │               │   │   └── Message.kt
+│   │   │   │               │   └── usecase/
+│   │   │   │               │       ├── LoginUseCase.kt
+│   │   │   │               │       └── SendMessageUseCase.kt
+│   │   │   │               ├── presentation/
+│   │   │   │               │   ├── ui/
+│   │   │   │               │   │   ├── screens/
+│   │   │   │               │   │   │   ├── ChatScreen.kt
+│   │   │   │               │   │   │   ├── HomeScreen.kt
+│   │   │   │               │   │   └── components/
+│   │   │   │               │   │       ├── ChatBubble.kt
+│   │   │   │               │   │       ├── TopBar.kt
+│   │   │   │               │   ├── viewmodel/
+│   │   │   │               │   │   ├── AuthViewModel.kt
+│   │   │   │               │   │   └── ChatViewModel.kt
+│   │   │   │               ├── MainActivity.kt
+│   │   │   ├── res/
+│   │   │   │   ├── drawable/
+│   │   │   │   ├── values/
+│   │   │   │   └── mipmap/
+│   │   │   └── AndroidManifest.xml
+│   └── build.gradle
+├── README.md
+└── ...
 
 ## Getting Started
 
