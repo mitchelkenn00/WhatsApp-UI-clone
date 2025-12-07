@@ -1,6 +1,6 @@
 # WhatsApp UI Clone (Kotlin · Android · MVVM · Clean Architecture)
 
-A sleek WhatsApp UI clone for Android built in Kotlin, focused on clean code, modern design patterns, and robust architecture.
+A sleek messaging app for Android built in Kotlin, focused on clean code, modern design patterns, and robust architecture.
 
 ## Overview
 
