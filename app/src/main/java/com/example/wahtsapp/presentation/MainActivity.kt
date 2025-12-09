@@ -1,4 +1,4 @@
-package com.example.wahtsapp
+package com.example.wahtsapp.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
