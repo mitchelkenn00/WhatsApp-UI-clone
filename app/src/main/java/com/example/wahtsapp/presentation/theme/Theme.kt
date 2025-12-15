@@ -13,92 +13,96 @@ import androidx.compose.ui.platform.LocalContext
 
 // ========== WHATSAPP LIGHT COLOR SCHEME ==========
 private val WhatsAppLightColorScheme = lightColorScheme(
-    // Primary colors - WhatsApp Green
-    primary = WhatsAppGreen,
+    // Primary colors - WhatsApp Teal/Green
+    primary = WhatsAppDarkGreen,           // Header bar color (#075E54)
     onPrimary = Neutral10,
-    primaryContainer = WhatsAppGreenLight,
-    onPrimaryContainer = Color(0xFF004040),
+    primaryContainer = OutgoingMessageLight, // Light green bubble
+    onPrimaryContainer = Neutral70,
 
-    // Secondary - Dark Green
-    secondary = WhatsAppDarkGreen,
+    // Secondary - Main WhatsApp Green for FAB and accents
+    secondary = WhatsAppGreen,              // Bright green (#25D366)
     onSecondary = Neutral10,
-    secondaryContainer = WhatsAppGreen.copy(alpha = 0.1f),
-    onSecondaryContainer = WhatsAppDarkGreen,
+    secondaryContainer = Color(0xFFD1F4DD), // Lighter container
+    onSecondaryContainer = Color(0xFF00663B),
 
-    // Tertiary - Blue for accent elements
+    // Tertiary - Blue for links and media icons
     tertiary = IconBlue,
     onTertiary = Neutral10,
-    tertiaryContainer = IconBlue.copy(alpha = 0.1f),
-    onTertiaryContainer = IconBlue,
+    tertiaryContainer = Color(0xFFE3F2FD),
+    onTertiaryContainer = Color(0xFF01579B),
 
     // Background & Surface
-    background = Neutral15,
+    background = Neutral10,                 // White background
     onBackground = Neutral80,
-    surface = Neutral10,
+    surface = Neutral10,                    // White cards/surfaces
     onSurface = Neutral80,
-    surfaceVariant = Neutral20,
+    surfaceVariant = SearchBarLight,        // Search bar background
     onSurfaceVariant = Neutral60,
 
     // Chat specific surfaces
-    // Using inverseSurface for chat backgrounds
-    inverseSurface = ChatBackgroundLight,
+    inverseSurface = ChatBackgroundLight,   // Chat wallpaper background
     inverseOnSurface = Neutral80,
+    inversePrimary = WhatsAppGreen,         // Accent for dark surfaces
 
-    // Outline & Error
-    outline = Neutral30,
+    // Outline & Borders
+    outline = DividerLight,                 // Dividers
     outlineVariant = Neutral25,
+
+    // Error colors
     error = IconRed,
     onError = Neutral10,
-    errorContainer = IconRed.copy(alpha = 0.1f),
-    onErrorContainer = IconRed,
+    errorContainer = Color(0xFFFFEBEE),
+    onErrorContainer = Color(0xFFC62828),
 
-    // Status colors
-    // Using scrim for status indicators
-    scrim = StatusOnline
+    // Scrim for overlays
+    scrim = Color(0x99000000)
 )
 
 // ========== WHATSAPP DARK COLOR SCHEME ==========
 private val WhatsAppDarkColorScheme = darkColorScheme(
-    // Primary - Accent Green for dark mode
-    primary = WhatsAppGreenAccent,
+    // Primary - Teal accent for dark mode
+    primary = WhatsAppGreenAccent,          // Teal (#00A884)
     onPrimary = Neutral10,
-    primaryContainer = WhatsAppDarkGreenLight,
-    onPrimaryContainer = Color(0xFFA8D8CA),
+    primaryContainer = OutgoingMessageDark, // Dark green bubble
+    onPrimaryContainer = Color(0xFF6DDABE),
 
-    // Secondary - Dark Green
-    secondary = WhatsAppDarkGreen,
-    onSecondary = Neutral10,
-    secondaryContainer = WhatsAppGreenAccent.copy(alpha = 0.2f),
-    onSecondaryContainer = WhatsAppGreenAccent,
+    // Secondary - Bright green for accents
+    secondary = WhatsAppGreen,
+    onSecondary = Neutral100,
+    secondaryContainer = Color(0xFF005C4B), // Darker container
+    onSecondaryContainer = Color(0xFF6DDABE),
 
-    // Tertiary - Blue for accent elements
+    // Tertiary - Blue for links
     tertiary = IconBlue,
-    onTertiary = Neutral10,
-    tertiaryContainer = IconBlue.copy(alpha = 0.2f),
-    onTertiaryContainer = IconBlue.copy(alpha = 0.8f),
+    onTertiary = Neutral100,
+    tertiaryContainer = Color(0xFF0D47A1),
+    onTertiaryContainer = Color(0xFF90CAF9),
 
     // Background & Surface
-    background = Neutral100,
+    background = Neutral100,                // Dark background (#0B141A)
     onBackground = Neutral10,
-    surface = Neutral90,
-    onSurface = Neutral10,
-    surfaceVariant = Neutral85,
-    onSurfaceVariant = Neutral50,
+    surface = Neutral90,                    // Dark cards (#202C33)
+    onSurface = Color(0xFFE9EDEF),         // Light text
+    surfaceVariant = SearchBarDark,         // Dark search bar
+    onSurfaceVariant = Color(0xFF8696A0),  // Muted text
 
     // Chat specific surfaces
-    inverseSurface = ChatBackgroundDark,
+    inverseSurface = ChatBackgroundDark,    // Dark chat background
     inverseOnSurface = Neutral10,
+    inversePrimary = WhatsAppGreenAccent,
 
-    // Outline
-    outline = Neutral70,
-    outlineVariant = Neutral80,
-    error = Color(0xFFFF6B6B), // Brighter red for dark mode
+    // Outline & Borders
+    outline = DividerDark,                  // Dark dividers
+    outlineVariant = Neutral85,
+
+    // Error colors
+    error = Color(0xFFFF6B6B),             // Brighter red for dark mode
     onError = Neutral10,
-    errorContainer = IconRed.copy(alpha = 0.2f),
+    errorContainer = Color(0xFF5C1C1C),
     onErrorContainer = Color(0xFFFFA8A8),
 
-    // Status
-    scrim = StatusOnline
+    // Scrim
+    scrim = Color(0xCC000000)
 )
 
 // ========== WHATSAPP THEME ==========
@@ -117,14 +121,15 @@ fun WahtsappTheme(
         else -> WhatsAppLightColorScheme
     }
 
-//    val view = LocalView.current
-//    if (!view.isInEditMode) {
-//        SideEffect {
-//            val window = (view.context as Activity).window
-//            window.statusBarColor = colorScheme.primary.toArgb()
-//            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
-//        }
-//    }
+    // Uncomment to set status bar color
+    // val view = LocalView.current
+    // if (!view.isInEditMode) {
+    //     SideEffect {
+    //         val window = (view.context as Activity).window
+    //         window.statusBarColor = colorScheme.primary.toArgb()
+    //         WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+    //     }
+    // }
 
     MaterialTheme(
         colorScheme = colorScheme,
@@ -142,8 +147,11 @@ data class WhatsAppColors(
     val statusOffline: Color,
     val iconBlue: Color,
     val iconRed: Color,
+    val iconGray: Color,
     val searchBar: Color,
-    val unreadBadge: Color
+    val unreadBadge: Color,
+    val divider: Color,
+    val ripple: Color
 )
 
 val MaterialTheme.whatsAppColors: WhatsAppColors
@@ -158,8 +166,11 @@ val MaterialTheme.whatsAppColors: WhatsAppColors
             statusOffline = StatusOffline,
             iconBlue = IconBlue,
             iconRed = IconRed,
+            iconGray = IconGray,
             searchBar = if (isDark) SearchBarDark else SearchBarLight,
-            unreadBadge = UnreadBadge
+            unreadBadge = UnreadBadge,
+            divider = if (isDark) DividerDark else DividerLight,
+            ripple = if (isDark) RippleDark else RippleLight
         )
     }
 
@@ -175,3 +186,12 @@ val MaterialTheme.chatBubbleIncoming: Color
 val MaterialTheme.whatsAppChatBackground: Color
     @Composable
     get() = if (isSystemInDarkTheme()) ChatBackgroundDark else ChatBackgroundLight
+
+// Additional utility extensions
+val MaterialTheme.chatDivider: Color
+    @Composable
+    get() = if (isSystemInDarkTheme()) DividerDark else DividerLight
+
+val MaterialTheme.headerBackground: Color
+    @Composable
+    get() = if (isSystemInDarkTheme()) Neutral90 else WhatsAppDarkGreen

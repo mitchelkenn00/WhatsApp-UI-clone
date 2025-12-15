@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.wahtsapp.presentation.theme.WahtsappTheme
+import com.example.wahtsapp.presentation.theme.WhatsAppTestScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             WahtsappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    //WhatsAppTestScreen(modifier = Modifier.padding(innerPadding))
                     Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
