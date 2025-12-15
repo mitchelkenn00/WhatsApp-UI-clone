@@ -11,21 +11,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.example.wahtsapp.presentation.theme.WahtsappTheme
 import com.example.wahtsapp.presentation.theme.WhatsAppTestScreen
+import com.example.wahtsapp.presentation.ui.home.view.screen.HomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
             WahtsappTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    HomeScreen(  navController, modifier = Modifier.padding(innerPadding))
                     //WhatsAppTestScreen(modifier = Modifier.padding(innerPadding))
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
                 }
             }
         }

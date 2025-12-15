@@ -195,3 +195,7 @@ val MaterialTheme.chatDivider: Color
 val MaterialTheme.headerBackground: Color
     @Composable
     get() = if (isSystemInDarkTheme()) Neutral90 else WhatsAppDarkGreen
+
+val MaterialTheme.whatsappHeader: Color
+    @Composable
+    get() = if (isSystemInDarkTheme()) Neutral10 else WhatsAppGreen
