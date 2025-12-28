@@ -44,7 +44,7 @@ fun ChatScreen(
             .background(ChatBackgroundLight)
     ) {
         TopAppBar(
-            title = { Text("John Doe", color = Neutral10) },
+            title = { Text("lewis Gitau", color = Neutral10) },
             navigationIcon = {
                 IconButton(onClick = onNavigateBack) {
                     Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Neutral10)
