@@ -35,7 +35,7 @@ fun ChatBubble(
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
                 color = Neutral60,
-                modifier = Modifier.padding(horizontal = 12.dp, bottom = 2.dp)
+                modifier = Modifier.padding(start = 12.dp, end = 12.dp, bottom = 2.dp)
             )
         }
         
@@ -64,7 +64,7 @@ fun ChatBubble(
             text = formatTimestamp(message.timestamp),
             fontSize = 11.sp,
             color = Neutral60,
-            modifier = Modifier.padding(horizontal = 12.dp, top = 2.dp)
+            modifier = Modifier.padding(start = 12.dp, end = 12.dp, top = 2.dp)
         )
     }
 }
@@ -81,4 +81,3 @@ private fun formatTimestamp(timestamp: Long): String {
         else -> "Long ago"
     }
 }
-

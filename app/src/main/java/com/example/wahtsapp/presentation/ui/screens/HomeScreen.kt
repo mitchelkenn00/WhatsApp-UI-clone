@@ -5,11 +5,12 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Chat
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material.icons.filled.Status
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,6 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.wahtsapp.domain.model.Status
 import com.example.wahtsapp.presentation.ui.components.ChatItem
 import com.example.wahtsapp.presentation.theme.*
 import com.example.wahtsapp.presentation.viewModel.ChatListViewModel
@@ -70,13 +72,13 @@ fun HomeScreen(
                 selected = selectedTab == 1,
                 onClick = { selectedTab = 1 },
                 text = { Text("STATUS", fontSize = 12.sp) },
-                icon = { Icon(Icons.Default.Status, contentDescription = "Status") }
+                icon = { Icon(Icons.Default.Add, contentDescription = "Status") }
             )
             Tab(
                 selected = selectedTab == 2,
                 onClick = { selectedTab = 2 },
                 text = { Text("CALLS", fontSize = 12.sp) },
-                icon = { Icon(Icons.Default.CameraAlt, contentDescription = "Calls") }
+                icon = { Icon(Icons.Default.Call, contentDescription = "Calls") }
             )
         }
         
@@ -136,4 +138,3 @@ private fun CallsPlaceholder() {
         )
     }
 }
-

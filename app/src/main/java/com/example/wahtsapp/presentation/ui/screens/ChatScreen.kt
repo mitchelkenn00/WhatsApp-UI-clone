@@ -7,16 +7,16 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.wahtsapp.domain.model.Message
 import com.example.wahtsapp.presentation.ui.components.ChatBubble
 import com.example.wahtsapp.presentation.ui.components.ChatInputBar
 import com.example.wahtsapp.presentation.theme.*
+import com.example.wahtsapp.presentation.viewModel.ChatViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,7 +29,7 @@ fun ChatScreen(
     val messageText by chatViewModel.messageText.collectAsState()
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
-    
+
     LaunchedEffect(messages.size) {
         if (messages.isNotEmpty()) {
             coroutineScope.launch {
@@ -37,7 +37,7 @@ fun ChatScreen(
             }
         }
     }
-    
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -54,7 +54,7 @@ fun ChatScreen(
                 containerColor = WhatsAppGreen
             )
         )
-        
+
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
@@ -66,7 +66,7 @@ fun ChatScreen(
                 ChatBubble(message = message)
             }
         }
-        
+
         ChatInputBar(
             messageText = messageText,
             onMessageTextChanged = chatViewModel::onMessageTextChanged,
@@ -74,4 +74,3 @@ fun ChatScreen(
         )
     }
 }
-
