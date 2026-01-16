@@ -6,6 +6,7 @@ import com.example.wahtsapp.domain.model.Chat
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class ChatListViewModel : ViewModel() {
@@ -89,11 +90,13 @@ class ChatListViewModel : ViewModel() {
     
     fun markChatAsRead(chatId: String) {
         viewModelScope.launch {
-            _chats.value = _chats.value.map { chat ->
-                if (chat.id == chatId) {
-                    chat.copy(unreadCount = 0)
-                } else {
-                    chat
+            _chats.update { chats ->
+                chats.map { chat ->
+                    if (chat.id == chatId) {
+                        chat.copy(unreadCount = 0)
+                    } else {
+                        chat
+                    }
                 }
             }
         }

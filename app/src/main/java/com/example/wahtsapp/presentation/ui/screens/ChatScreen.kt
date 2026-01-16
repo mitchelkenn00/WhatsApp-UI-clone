@@ -22,13 +22,19 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ChatScreen(
+    chatId: String,
     chatViewModel: ChatViewModel = viewModel(),
     onNavigateBack: () -> Unit = {}
 ) {
     val messages by chatViewModel.messages.collectAsState()
     val messageText by chatViewModel.messageText.collectAsState()
+    val chatName by chatViewModel.chatName.collectAsState()
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(chatId) {
+        chatViewModel.initChat(chatId)
+    }
 
     LaunchedEffect(messages.size) {
         if (messages.isNotEmpty()) {
@@ -44,7 +50,7 @@ fun ChatScreen(
             .background(ChatBackgroundLight)
     ) {
         TopAppBar(
-            title = { Text("lewis Gitau", color = Neutral10) },
+            title = { Text(chatName, color = Neutral10) },
             navigationIcon = {
                 IconButton(onClick = onNavigateBack) {
                     Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Neutral10)
