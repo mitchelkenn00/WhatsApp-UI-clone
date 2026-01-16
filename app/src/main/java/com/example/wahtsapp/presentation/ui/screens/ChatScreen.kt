@@ -48,6 +48,8 @@ fun ChatScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(ChatBackgroundLight)
+            .windowInsetsPadding(WindowInsets.navigationBars)
+            .imePadding()
     ) {
         TopAppBar(
             title = { Text(chatName, color = Neutral10) },

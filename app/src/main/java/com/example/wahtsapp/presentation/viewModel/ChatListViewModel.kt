@@ -30,7 +30,7 @@ class ChatListViewModel : ViewModel() {
             ),
             Chat(
                 id = "2",
-                name = "Alice Kimani",
+                name = "Mitchel Wanjiru",
                 lastMessage = "Hey, are you free for a call?",
                 timestamp = System.currentTimeMillis() - 3600000,
                 unreadCount = 1,
@@ -38,7 +38,7 @@ class ChatListViewModel : ViewModel() {
             ),
             Chat(
                 id = "3",
-                name = "DJ Afro",
+                name = "Aldo",
                 lastMessage = "Thanks for the help yesterday!",
                 timestamp = System.currentTimeMillis() - 86400000,
                 unreadCount = 0,
@@ -46,7 +46,7 @@ class ChatListViewModel : ViewModel() {
             ),
             Chat(
                 id = "4",
-                name = "Meru Kianjai",
+                name = "John Mwendwa",
                 lastMessage = "Meeting at 3pm confirmed",
                 timestamp = System.currentTimeMillis() - 172800000,
                 unreadCount = 0,
@@ -54,15 +54,15 @@ class ChatListViewModel : ViewModel() {
             ),
             Chat(
                 id = "5",
-                name = "Mitchel Ndungu",
+                name = "Faith Kyalo",
                 lastMessage = "Can you review the document?",
                 timestamp = System.currentTimeMillis() - 259200000,
-                unreadCount = 5,
+                unreadCount = 2,
                 isOnline = false
             ),
             Chat(
                 id = "6",
-                name = "Kasongo Eehh",
+                name = "Gabu",
                 lastMessage = "See you tomorrow!",
                 timestamp = System.currentTimeMillis() - 345600000,
                 unreadCount = 0,
@@ -70,7 +70,7 @@ class ChatListViewModel : ViewModel() {
             ),
             Chat(
                 id = "7",
-                name = "Nameless Person",
+                name = "Nameless44",
                 lastMessage = "The presentation went well",
                 timestamp = System.currentTimeMillis() - 432000000,
                 unreadCount = 1,
@@ -78,7 +78,7 @@ class ChatListViewModel : ViewModel() {
             ),
             Chat(
                 id = "8",
-                name = "vertiGO 0628",
+                name = "Gift-",
                 lastMessage = "Happy birthday! 🎉",
                 timestamp = System.currentTimeMillis() - 518400000,
                 unreadCount = 0,
