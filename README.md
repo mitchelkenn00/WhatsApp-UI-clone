@@ -131,10 +131,18 @@ app/src/main/java/com/mitchelkenn00/mitchyken/
 
 2. **Open in [Android Studio](https://developer.android.com/studio)**
 
-3. **Add your Google Client ID/credentials to `google-services.json` (for Sign-In)**  
+3. **Configure Android SDK location:**
+   - Copy `local.properties.template` to `local.properties`
+   - Update `sdk.dir` in `local.properties` with your Android SDK path:
+     - Standard Android Studio (Linux/Mac): `/home/YOUR_USERNAME/Android/Sdk`
+     - JetBrains Toolbox (Linux): `/var/lib/jetbrains/Sdk`
+     - Windows: `C:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\Sdk`
+   - **Note:** `local.properties` is gitignored and should never be committed
+
+4. **Add your Google Client ID/credentials to `google-services.json` (for Sign-In)**  
    - [How to generate google-services.json?](https://developers.google.com/identity/sign-in/android/start)
 
-4. **Build and run on emulator/device (Android 5.0+)**
+5. **Build and run on emulator/device (Android 5.0+)**
 
 ---
 

@@ -1,0 +1,16 @@
+## This file is a TEMPLATE for local.properties
+## Copy this file to local.properties and update with your local SDK path
+## DO NOT commit local.properties to version control
+
+# For Linux/Mac users with standard Android Studio installation:
+# sdk.dir=/home/YOUR_USERNAME/Android/Sdk
+
+# For JetBrains Toolbox users on Linux:
+# sdk.dir=/var/lib/jetbrains/Sdk
+
+# For Mac users with standard installation:
+# sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
+
+# For Windows users:
+# sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\Sdk
+
