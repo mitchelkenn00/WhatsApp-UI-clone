@@ -2,14 +2,12 @@ package com.example.wahtsapp.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.wahtsapp.presentation.ui.screens.AuthScreen
-import com.example.wahtsapp.presentation.ui.screens.ChatScreen
-import com.example.wahtsapp.presentation.ui.screens.HomeScreen
-import com.example.wahtsapp.presentation.ui.screens.ProfileScreen
-import com.example.wahtsapp.presentation.ui.screens.StatusScreen
+import androidx.navigation.navArgument
+import com.example.wahtsapp.presentation.ui.screens.*
 
 @Composable
 fun WhatsAppNavGraph(
@@ -26,8 +24,16 @@ fun WhatsAppNavGraph(
                 }
             )
         }
-        
-        composable(Routes.Chat.route) { backStackEntry ->
+
+        composable(
+            route = Routes.Chat.route,
+            arguments = listOf(
+                navArgument("chatId") {
+                    type = NavType.StringType
+                    defaultValue = ""
+                }
+            )
+        ) { backStackEntry ->
             val chatId = backStackEntry.arguments?.getString("chatId") ?: ""
             ChatScreen(
                 chatId = chatId,
@@ -36,7 +42,7 @@ fun WhatsAppNavGraph(
                 }
             )
         }
-        
+
         composable(Routes.Auth.route) {
             AuthScreen(
                 onNavigateToHome = {
@@ -46,7 +52,7 @@ fun WhatsAppNavGraph(
                 }
             )
         }
-        
+
         composable(Routes.Profile.route) {
             ProfileScreen(
                 onNavigateBack = {
@@ -54,7 +60,7 @@ fun WhatsAppNavGraph(
                 }
             )
         }
-        
+
         composable(Routes.Status.route) {
             StatusScreen(
                 onNavigateBack = {
@@ -64,4 +70,3 @@ fun WhatsAppNavGraph(
         }
     }
 }
-
